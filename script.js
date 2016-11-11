@@ -1,7 +1,12 @@
 window.onload = function () {
- var httpRequest;
-  document.getElementById("searchbttn").onclick = function() { makeRequest('request.php?q=definition'); };
-
+  var httpRequest;
+  document.getElementById("searchbttn").onclick = function() {
+    displayresult("Result");
+    var q = document.getElementById("searching").value;
+    makeRequest(('request.php?q='+q)); 
+    
+  };
+  
   function makeRequest(url) {
     httpRequest = new XMLHttpRequest();
 
@@ -18,11 +23,17 @@ window.onload = function () {
   function alertContents() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
+        document.getElementById("result").innerHTML = httpRequest.responseText;
       } 
       else {
-        alert('There was a problem with the request.');
+        document.getElementById("result").innerHTML = ('There was a problem with the request.');
+        
       }
     }
   }
+  
+  function displayresult(result){
+    document.getElementById("r-head").innerHTML = result;
+  }
+  
 }
