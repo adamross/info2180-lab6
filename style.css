@@ -1,0 +1,19 @@
+#header{
+    background-color: #5533cc;
+    color: white;
+    border: white;
+    
+}
+
+#head{
+    vertical-align: center;
+}
+
+body{
+    font-family: Times, serif;
+    background: #bbbbbb;
+}
+
+#searchbttn{
+    background-color: #0044ff;
+}
